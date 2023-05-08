@@ -17,89 +17,53 @@
           <p>
             The following technology was used to create this sample application.
           </p>
-          <ul class="space-y-4">
-            <li class="flex items-center">
-              <svg
-                class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="11" />
-                <path
-                  d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
-                  fill="none"
-                />
-              </svg>
-              <p class="ml-4">Angular 15 CLI</p>
-            </li>
-            <li class="flex items-center">
-              <svg
-                class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="11" />
-                <path
-                  d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
-                  fill="none"
-                />
-              </svg>
-              <p class="ml-4">Angular Material</p>
-            </li>
-            <li class="flex items-center">
-              <svg
-                class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="11" />
-                <path
-                  d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
-                  fill="none"
-                />
-              </svg>
-              <p class="ml-4">NGRX</p>
-            </li>
-            <li class="flex items-center">
-              <svg
-                class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="11" />
-                <path
-                  d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
-                  fill="none"
-                />
-              </svg>
-              <p class="ml-4">Tailwindcss</p>
-            </li>
-            <li class="flex items-center">
-              <svg
-                class="h-6 w-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="11" />
-                <path
-                  d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9"
-                  fill="none"
-                />
-              </svg>
-              <p class="ml-4">Angular Router</p>
-            </li>
-          </ul>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <p class="ml-4">
+                <mat-icon>check</mat-icon>
+                Angular 15 CLI
+              </p>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <p class="ml-4">
+                <mat-icon>check</mat-icon>
+                Angular Material
+              </p>
+            </mat-list-item>
+            <!-- TECHNOLOGY PENDING TO IMPLEMENT -->
+            <!-- <mat-list-item role="listitem">
+              <p class="ml-4">
+                <mat-icon>check</mat-icon>
+                NGRX
+              </p>
+            </mat-list-item> -->
+            <mat-list-item role="listitem">
+              <p class="ml-4">
+                <mat-icon>check</mat-icon>
+                Tailwindcss
+              </p>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <p class="ml-4">
+                <mat-icon>check</mat-icon>
+                Angular Router
+              </p>
+            </mat-list-item>
+          </mat-list>
         </div>
         <div class="pt-8 text-base font-semibold leading-7">
-          <p class="text-gray-900">
-            Please press the button to proceed to your app
+          <p class="text-gray-900 mb-3">
+            Please press the button to proceed to your app.
           </p>
           <p>
             <a
               class="text-sky-500 hover:text-sky-600"
+              mat-raised-button
               routerLink="/reading-books"
-              >Book Library &rarr;</a
             >
+              <mat-icon>arrow_forward</mat-icon>
+              My reading books!
+            </a>
           </p>
         </div>
       </div>

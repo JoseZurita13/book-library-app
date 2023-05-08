@@ -1,0 +1,34 @@
+<div class="p-5 bg-gray-100 relative rounded shadow">
+  <button
+    class="absolute top-3 right-3 focus:outline-none p-2"
+    (click)="close()"
+    type="button"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="w-full h-5/6 p-8">
+    <h2 class="text-xl text-justify font-black mb-4">
+      {{ book.title }}
+    </h2>
+    <h3 class="text-lg text-justify mb-3">
+      {{ book.longDescription }}
+    </h3>
+    <img [src]="book.thumbnailUrl" width="150" height="150" alt="thumbnail" />
+    <p class="text-base mt-2 mb-2">Pages: {{ book.pageCount }}</p>
+    <h4 class="text-base text-justify italic mb-3">
+      Authors: {{ book.authors.join(", ") }}
+    </h4>
+    <p class="text-base italic">
+      Published date:
+      {{ book.publishedDate?.$date | date : "fullDate" }}
+    </p>
+    <p class="text-base">
+      Status:
+      {{ book.status }}
+    </p>
+    <p class="text-base">
+      Categories:
+      {{ book.categories }}
+    </p>
+  </div>
+</div>

@@ -19,8 +19,105 @@
         alt="bg-center"
       />
     </div>
+    <h1 class="text-2xl text-center font-bold ml-2 mb-3">My reading books</h1>
+    <form class="flex flex-row items-center" (ngSubmit)="update()">
+      <mat-form-field class="basis-1/2" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input
+          type="text"
+          placeholder="Book title"
+          aria-label="Search"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          [displayWith]="displayFn"
+        >
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option.title }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button class="basis-1/4 ml-2" mat-flat-button color="primary">
+        <mat-icon>search</mat-icon>
+        Search
+      </button>
+      <button
+        class="basis-1/4 ml-2"
+        mat-flat-button
+        color="warn"
+        type="button"
+        (click)="setFullList()"
+      >
+        <mat-icon>list</mat-icon>
+        View full list
+      </button>
+    </form>
+
     <div class="bg-white rounded shadow">
-      <h1>as</h1>
+      <div class="flex grow items-start w-full h-full" cdkDropListGroup>
+        <div
+          class="text-sm mt-2 min-h-[2.5rem]"
+          cdkDropList
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListData]="books"
+        >
+          <mat-drawer-container class="w-full h-full">
+            <mat-drawer class="w-3/5 h-full p-5" #drawer mode="side">
+              <div>
+                <h2 class="text-xl text-justify font-black mb-4">
+                  {{ selectedBook.title }}
+                </h2>
+              </div>
+              <div>
+                <h3 class="text-lg text-justify mb-3">
+                  {{ selectedBook.shortDescription }}
+                </h3>
+              </div>
+              <div>
+                <p class="text-base font-semibold mb-2">
+                  Pages: {{ selectedBook.pageCount }}
+                </p>
+              </div>
+              <div>
+                <h4 class="text-base text-justify italic mb-3">
+                  Authors: {{ selectedBook.authors.join(", ") }}
+                </h4>
+              </div>
+              <div>
+                <p class="text-base italic">
+                  Published date:
+                  {{ selectedBook.publishedDate?.$date | date }}
+                </p>
+              </div>
+              <button
+                class="mt-5"
+                mat-flat-button
+                color="primary"
+                (click)="openDialog()"
+              >
+                View full details
+              </button>
+            </mat-drawer>
+            <div class="w-full h-[60vh] p-3">
+              <div
+                (click)="drawer.toggle(); setSelectedBook(book)"
+                *ngFor="let book of books"
+                cdkDrag
+                class="g-white shadow p-3 rounded mt-2 border-b border-x-gray-300 cursor-pointer hover:bg-gray-400 w-[350px]"
+              >
+                {{ book.title }}
+              </div>
+            </div>
+          </mat-drawer-container>
+        </div>
+      </div>
     </div>
   </div>
 </div>
